@@ -3,6 +3,7 @@ package categorias;
 import java.io.IOException;
 
 import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
 
 import salud.isa.gsonMedDB.ElementoCadenaDeMando;
 
@@ -28,42 +29,51 @@ public class MedicinePresentations extends ElementoCadenaDeMando{
 			res = reader.nextString();
 		}
 		else if (nombreParametro.equals(INHREF_FIELD_TAGNAME)) {
-			try {
+			if (reader.peek() == JsonToken.STRING) {
 				res = reader.nextString();
 			}
-			catch (IllegalStateException e) {
+			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
 				reader.beginArray();
 				while (reader.hasNext()) {
 					res = res + reader.nextString() + ";";
 				}
 				reader.endArray();
 				res = res.substring(0, res.length()-1);
+			}
+			else {
+				res = "No se puede leer";
 			}
 		}
 		else if (nombreParametro.equals(DOSE_FIELD_TAGNAME)) {
-			try {
+			if (reader.peek() == JsonToken.STRING) {
 				res = reader.nextString();
 			}
-			catch (IllegalStateException e) {
+			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
 				reader.beginArray();
 				while (reader.hasNext()) {
 					res = res + reader.nextString() + ";";
 				}
 				reader.endArray();
 				res = res.substring(0, res.length()-1);
+			}
+			else {
+				res = "No se puede leer";
 			}
 		}
 		else if (nombreParametro.equals(POSOLOGYREF_FIELD_TAGNAME )) {
-			try {
+			if (reader.peek() == JsonToken.STRING) {
 				res = reader.nextString();
 			}
-			catch (IllegalStateException e) {
+			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
 				reader.beginArray();
 				while (reader.hasNext()) {
 					res = res + reader.nextString() + ";";
 				}
 				reader.endArray();
 				res = res.substring(0, res.length()-1);
+			}
+			else {
+				res = "No se puede leer";
 			}
 		}
 		return res;
