@@ -21,6 +21,4 @@ public class ActiveIngredients extends ElementoCadenaDeMando{
 		}
 		return res;
 	}
-
-
 }

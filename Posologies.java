@@ -21,6 +21,4 @@ public class Posologies extends ElementoCadenaDeMando{
 		}
 		return res;
 	}
-
-
 }

@@ -5,13 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 import com.google.gson.stream.JsonReader;
-
-/**
- * Created by jmalvarez on 11/5/16.
- * http://developer.android.com/intl/es/training/basics/network-ops/xml.html
- */
 
 public class DatabaseJSonReader {
 	

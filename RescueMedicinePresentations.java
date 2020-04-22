@@ -34,4 +34,5 @@ public class RescueMedicinePresentations extends ElementoCadenaDeMando{
 		}
 		return res;
 	}
+	
 }

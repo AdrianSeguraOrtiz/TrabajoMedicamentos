@@ -21,4 +21,5 @@ public class Medicines extends ElementoCadenaDeMando{
 		}
 		return res;
 	}
+	
 }

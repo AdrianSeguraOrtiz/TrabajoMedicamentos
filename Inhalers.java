@@ -25,4 +25,5 @@ public class Inhalers extends ElementoCadenaDeMando{
 		}
 		return res;
 	}
+	
 }

@@ -52,4 +52,5 @@ public abstract class ElementoCadenaDeMando {
 	}
 	
 	public abstract String leeParametro(String nombreParametro, JsonReader reader) throws IOException;
+	
 }
