@@ -30,7 +30,6 @@ public class GsonDatabaseClient {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
-
 	}
 
 }

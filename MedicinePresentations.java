@@ -29,53 +29,34 @@ public class MedicinePresentations extends ElementoCadenaDeMando{
 			res = reader.nextString();
 		}
 		else if (nombreParametro.equals(INHREF_FIELD_TAGNAME)) {
-			if (reader.peek() == JsonToken.STRING) {
-				res = reader.nextString();
-			}
-			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
-				reader.beginArray();
-				while (reader.hasNext()) {
-					res = res + reader.nextString() + ";";
-				}
-				reader.endArray();
-				res = res.substring(0, res.length()-1);
-			}
-			else {
-				res = "No se puede leer";
-			}
+			res = leeEnFuncionDeTipo(reader);
 		}
 		else if (nombreParametro.equals(DOSE_FIELD_TAGNAME)) {
-			if (reader.peek() == JsonToken.STRING) {
-				res = reader.nextString();
-			}
-			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
-				reader.beginArray();
-				while (reader.hasNext()) {
-					res = res + reader.nextString() + ";";
-				}
-				reader.endArray();
-				res = res.substring(0, res.length()-1);
-			}
-			else {
-				res = "No se puede leer";
-			}
+			res = leeEnFuncionDeTipo(reader);
 		}
 		else if (nombreParametro.equals(POSOLOGYREF_FIELD_TAGNAME )) {
-			if (reader.peek() == JsonToken.STRING) {
-				res = reader.nextString();
+			res = leeEnFuncionDeTipo(reader);
+		}
+		return res;
+	}
+	
+	private String leeEnFuncionDeTipo (JsonReader r) throws IOException {
+		String res = "";
+		if (r.peek() == JsonToken.STRING) {
+			res = r.nextString();
+		}
+		else if (r.peek() == JsonToken.BEGIN_ARRAY) {
+			r.beginArray();
+			while (r.hasNext()) {
+				res = res + r.nextString() + ";";
 			}
-			else if (reader.peek() == JsonToken.BEGIN_ARRAY) {
-				reader.beginArray();
-				while (reader.hasNext()) {
-					res = res + reader.nextString() + ";";
-				}
-				reader.endArray();
-				res = res.substring(0, res.length()-1);
-			}
-			else {
-				res = "No se puede leer";
-			}
+			r.endArray();
+			res = res.substring(0, res.length()-1);
+		}
+		else {
+			res = "No se puede leer";
 		}
 		return res;
 	}
 }
+
