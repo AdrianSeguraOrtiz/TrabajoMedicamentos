@@ -15,8 +15,6 @@ public class DatabaseJSonReader {
 		this.cadenaDeMando = ecdm;
 	}
 
-	public DatabaseJSonReader(){}
-
 	public String parse(String jsonFileName) throws IOException {
 
 		InputStream usersIS = new FileInputStream (new File(jsonFileName));
